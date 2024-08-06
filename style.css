@@ -1,0 +1,38 @@
+@charset "UTF-8";
+* {
+  font-family: 微軟正黑體;
+  letter-spacing: 1px;
+  /* transition-duration: 1s; */
+}
+
+h1 {
+    text-align: center;
+}
+form {
+	text-align: center;
+}
+body {
+    /*background-image: url("./img/darkGreen.jpg");*/
+}
+input[id="date2"] {
+	border-style:none;
+}
+input[name="price"] {
+	border-style:none;
+	text-align: center;
+}
+
+input[name="roi"] {
+	border-style:none;
+	text-align: center;
+}
+
+input[name="unit"] {
+	border-style:none;
+	text-align: center;
+}
+
+input[name="sum"] {
+	border-style:none;
+	text-align: center;
+}
