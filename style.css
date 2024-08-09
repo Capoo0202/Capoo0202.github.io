@@ -12,27 +12,39 @@ form {
 	text-align: center;
 }
 body {
-    /*background-image: url("./img/darkGreen.jpg");*/
+    /*background-image: url("./img/5.jpg");*/
 }
+table {
+	/*table-layout:fixed;*/
+}
+input[id="date1"] {
+	
+	background-color:transparent;
+}
+
 input[id="date2"] {
 	border-style:none;
+	outline:none;
+	background-color:transparent;
 }
 input[name="price"] {
 	border-style:none;
 	text-align: center;
+	outline:none;
+	background-color:transparent;
 }
 
 input[name="roi"] {
 	border-style:none;
 	text-align: center;
+	outline:none;
+	background-color:transparent;
 }
 
-input[name="unit"] {
-	border-style:none;
+select[name="unit"] {
 	text-align: center;
 }
 
-input[name="sum"] {
-	border-style:none;
+select[name="sum"] {
 	text-align: center;
 }
