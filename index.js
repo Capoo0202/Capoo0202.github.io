@@ -75,6 +75,7 @@ const sum14 = document.getElementById('sum14');
 
 const total1 = document.getElementById('total1');
 const total2 = document.getElementById('total2');
+const total3 = document.getElementById('total3');
 
 const last1 = document.getElementById('last1');
 const last2 = document.getElementById('last2');
@@ -116,37 +117,19 @@ var pricenow = [ 29.86, 10.52, 31.82, 9.95, 15.64, 14.92, 20.55, 17.32, 16.21, 1
 date1.addEventListener('input', function(e){
 	var day = new Date(this.value).getUTCDay();
 	var day2 = new Date(this.value);
-	unit1.value = 0;
-	sum1.value = 0;
-	unit2.value = 0;
-	sum2.value = 0;
-	unit3.value = 0;
-	sum3.value = 0;
-	unit4.value = 0;
-	sum4.value = 0;
-	unit5.value = 0;
-	sum5.value = 0;
-	unit6.value = 0;
-	sum6.value = 0;
-	unit7.value = 0;
-	sum7.value = 0;
-	unit8.value = 0;
-	sum8.value = 0;
-	unit9.value = 0;
-	sum9.value = 0;
-	unit10.value = 0;
-	sum10.value = 0;
-	unit11.value = 0;
-	sum11.value = 0;
-	unit12.value = 0;
-	sum12.value = 0;
-	unit13.value = 0;
-	sum13.value = 0;
-	unit14.value = 0;
-	sum14.value = 0;
+	var unit = document.querySelectorAll('select[name="unit"]');
+	for ( var i = 0 ; i < unit.length ; i++ ) {
+		unit[i].value = 0;
+	}
+	
+	var sum = document.querySelectorAll('select[name="sum"]');
+	for ( var i = 0 ; i < sum.length ; i++ ) {
+		sum[i].value = 0;
+	}
+	
 	total1.value = 0;
 	total2.value = 0;
-	last1.value = 0;
+	last1.value = (1000000).toLocaleString();
 	deletealloptions();
 	if ( !date1.value ) {
 		disable();
@@ -167,35 +150,14 @@ date1.addEventListener('input', function(e){
 			
 			var day3 = addDays(day2, 365);
 			date2.value=day3.getFullYear() + '-' + (day3.getMonth() + 1) + '-' + day3.getDate();
-			unit1.disabled = false;
-			unit2.disabled = false;
-			unit3.disabled = false;
-			unit4.disabled = false;
-			unit5.disabled = false;
-			unit6.disabled = false;
-			unit7.disabled = false;
-			unit8.disabled = false;
-			unit9.disabled = false;
-			unit10.disabled = false;
-			unit11.disabled = false;
-			unit12.disabled = false;
-			unit13.disabled = false;
-			unit14.disabled = false;
 			
-			sum1.disabled = false;
-			sum2.disabled = false;
-			sum3.disabled = false;
-			sum4.disabled = false;
-			sum5.disabled = false;
-			sum6.disabled = false;
-			sum7.disabled = false;
-			sum8.disabled = false;
-			sum9.disabled = false;
-			sum10.disabled = false;
-			sum11.disabled = false;
-			sum12.disabled = false;
-			sum13.disabled = false;
-			sum14.disabled = false;
+			for ( var i = 0 ; i < unit.length ; i++ ) {
+				unit[i].disabled = false;
+			}
+	
+			for ( var i = 0 ; i < sum.length ; i++ ) {
+				sum[i].disabled = false;
+			}
 			
 			var day4 = new Date(this.value).getDate();
 			if ( day4 == 1 ) {
@@ -230,7 +192,7 @@ date1.addEventListener('input', function(e){
 			}
 			else if ( day4 == 2 ) {
 				price1.value = 2;
-				roi1.value = "3%";
+				roi1.value = "100%";
 				price2.value = 18;
 				roi2.value = "2%";
 				price3.value = 18;
@@ -1164,133 +1126,52 @@ function deletealloptions() {
 	}
 }
 function enable() {
-	unit1.disabled = false;
-	unit2.disabled = false;
-	unit3.disabled = false;
-	unit4.disabled = false;
-	unit5.disabled = false;
-	unit6.disabled = false;
-	unit7.disabled = false;
-	unit8.disabled = false;
-	unit9.disabled = false;
-	unit10.disabled = false;
-	unit11.disabled = false;
-	unit12.disabled = false;
-	unit13.disabled = false;
-	unit14.disabled = false;	
+	var unit = document.querySelectorAll('select[name="unit"]');
+	for ( var i = 0 ; i < unit.length ; i++ ) {
+		unit[i].disabled = false;
+	}
 	
-	sum1.disabled = false;
-	sum2.disabled = false;
-	sum3.disabled = false;
-	sum4.disabled = false;
-	sum5.disabled = false;
-	sum6.disabled = false;
-	sum7.disabled = false;
-	sum8.disabled = false;
-	sum9.disabled = false;
-	sum10.disabled = false;
-	sum11.disabled = false;
-	sum12.disabled = false;
-	sum13.disabled = false;
-	sum14.disabled = false;
+	var sum = document.querySelectorAll('select[name="sum"]');
+	for ( var i = 0 ; i < sum.length ; i++ ) {
+		sum[i].disabled = false;
+	}
 }
 
 function disable() {
-	unit1.disabled = true;
-	unit2.disabled = true;
-	unit3.disabled = true;
-	unit4.disabled = true;
-	unit5.disabled = true;
-	unit6.disabled = true;
-	unit7.disabled = true;
-	unit8.disabled = true;
-	unit9.disabled = true;
-	unit10.disabled = true;
-	unit11.disabled = true;
-	unit12.disabled = true;
-	unit13.disabled = true;
-	unit14.disabled = true;	
+	var unit = document.querySelectorAll('select[name="unit"]');
+	for ( var i = 0 ; i < unit.length ; i++ ) {
+		unit[i].disabled = true;
+	}
 	
-	sum1.disabled = true;
-	sum2.disabled = true;
-	sum3.disabled = true;
-	sum4.disabled = true;
-	sum5.disabled = true;
-	sum6.disabled = true;
-	sum7.disabled = true;
-	sum8.disabled = true;
-	sum9.disabled = true;
-	sum10.disabled = true;
-	sum11.disabled = true;
-	sum12.disabled = true;
-	sum13.disabled = true;
-	sum14.disabled = true;
+	var sum = document.querySelectorAll('select[name="sum"]');
+	for ( var i = 0 ; i < sum.length ; i++ ) {
+		sum[i].disabled = true;
+	}
 	
-	price1.value = "";
-	roi1.value = "";
-	price2.value = "";
-	roi2.value = "";
-	price3.value = "";
-	roi3.value = "";
-	price4.value = "";
-	roi4.value = "";
-	price5.value = "";
-	roi5.value = "";
-	price6.value = "";
-	roi6.value = "";
-	price7.value = "";
-	roi7.value = "";
-	price8.value = "";
-	roi8.value = "";
-	price9.value = "";
-	roi9.value = "";
-	price10.value = "";
-	roi10.value = "";
-	price11.value = "";
-	roi11.value = "";
-	price12.value = "";
-	roi12.value = "";
-	price13.value = "";
-	roi13.value = "";
-	price14.value = "";
-	roi14.value = "";
+	var price = document.querySelectorAll('input[name="price"]');
+	for ( var i = 0 ; i < price.length ; i++ ) {
+		price[i].value = "";
+	}
+	
+	var roi = document.querySelectorAll('input[name="roi"]');
+	for ( var i = 0 ; i < roi.length ; i++ ) {
+		roi[i].value = "";
+	}
 	
 	total1.value = "";
 	total2.value = "";
 	last1.value = "";
 }
 reset.addEventListener('click', function(b) {
-	unit1.disabled = true;
-	unit2.disabled = true;
-	unit3.disabled = true;
-	unit4.disabled = true;
-	unit5.disabled = true;
-	unit6.disabled = true;
-	unit7.disabled = true;
-	unit8.disabled = true;
-	unit9.disabled = true;
-	unit10.disabled = true;
-	unit11.disabled = true;
-	unit12.disabled = true;
-	unit13.disabled = true;
-	unit14.disabled = true;	
+	var unit = document.querySelectorAll('select[name="unit"]');
+	for ( var i = 0 ; i < unit.length ; i++ ) {
+		unit[i].disabled = true;
+	}
 	
-	sum1.disabled = true;
-	sum2.disabled = true;
-	sum3.disabled = true;
-	sum4.disabled = true;
-	sum5.disabled = true;
-	sum6.disabled = true;
-	sum7.disabled = true;
-	sum8.disabled = true;
-	sum9.disabled = true;
-	sum10.disabled = true;
-	sum11.disabled = true;
-	sum12.disabled = true;
-	sum13.disabled = true;
-	sum14.disabled = true;
-	
-	numofbond = 0;
+	var sum = document.querySelectorAll('select[name="sum"]');
+	for ( var i = 0 ; i < sum.length ; i++ ) {
+		sum[i].disabled = true;
+	}
 })
 
 function sumofchooseselect(x) {
@@ -1336,15 +1217,16 @@ function sumofchooseselect(x) {
 	for (var i = 0; i < select2.length; i++) {
 		if ( Number(select2[i].value) > 0 ) {
 			total = Number(total) + Number(select2[i].value);
-			roi = Number(roi) + ( Number(pricenow[i]) - Number(select3[i].value) ) * Number(select1[i].value);
+			roi = Number(roi) + ( Number(pricenow[i]) * Number(select1[i].value) * ( 100 + Number(select4[i].value.replace("%","")  ) ) * 10 -  Number(select2[i].value) );
 		}
 	}
 	total1.value = total;
-	last1.value = 1000000 - Number(total1.value);
+	last1.value = ( 1000000 - Number(total1.value) ).toLocaleString();
 	if ( total > 1000000 ) {
 		alert("超出預算");
 		total1.value = Number(total) - Number(select2[x].value);
-		last1.value = 1000000 - Number(total1.value);
+		last1.value = ( 1000000 - Number(total1.value) ).toLocaleString();
+		total1.value = (Number(total1.value)).toLocaleString();
 		select1[x].value = 0;
 		select2[x].value = 0;
 		select2[x].options.remove(20);
@@ -1355,8 +1237,25 @@ function sumofchooseselect(x) {
 		}
 		enable();
 	}
+	else if ( total == 0 ) {
+		total2.value = "0%";
+		total3.value = "0%";
+	}
+	else if ( total == 1000000 ) {
+		total2.value = ( Number(roi) / Number(total1.value) * 100  ).toFixed(2) + "%"  ;
+		total3.value = ( Number(roi) / 10000 ).toFixed(2) + "%" ;
+		total1.value = (Number(total)).toLocaleString();
+		for (var j = 0; j < select1.length; j++) {
+		   if ( select1[j].value <= 0 ) {
+			   select1[j].disabled = true;
+			   select2[j].disabled = true;
+		   }
+	   }
+	}
 	else {
-		total2.value = roi.toFixed(2);
+		total2.value = ( Number(roi) / Number(total1.value) * 100  ).toFixed(2) + "%"  ;
+		total3.value = ( Number(roi) / 10000 ).toFixed(2) + "%";  
+		total1.value = (Number(total)).toLocaleString();
 	}
 }
 	
@@ -1416,15 +1315,16 @@ function unitofchooseselect(x) {
 	for (var i = 0; i < select2.length; i++) {
 		if ( select2[i].value > 0 ) {
 			total = Number(total) + Number(select2[i].value);
-			roi = Number(roi) + ( Number(pricenow[i]) - Number(select3[i].value) ) * Number(select1[i].value);//?
+			roi = Number(roi) + ( Number(pricenow[i]) * Number(select1[i].value) * ( 100 + Number(select4[i].value.replace("%","")  ) ) * 10 -  Number(select2[i].value) );
 		}
 	}
 	total1.value = total;
-	last1.value = 1000000 - Number(total1.value);
+	last1.value = ( 1000000 - Number(total1.value) ).toLocaleString();
 	if ( total > 1000000 ) {
 		alert("超出預算");
 		total1.value = Number(total) - Number(select2[x].value);
-		last1.value = 1000000 - Number(total1.value);
+		last1.value = ( 1000000 - Number(total1.value) ).toLocaleString();
+		total1.value = (Number(total1.value)).toLocaleString();
 		select1[x].value = 0;
 		select2[x].value = 0;
 		select2[x].options.remove(20);
@@ -1435,8 +1335,25 @@ function unitofchooseselect(x) {
 		}
 		enable();
 	}
+	else if ( total == 0 ) {
+		total2.value = "0%";
+		total3.value = "0%";
+	}
+	else if ( total == 1000000 ) {
+		total2.value = ( Number(roi) / Number(total1.value) * 100  ).toFixed(2) + "%"  ;
+		total3.value = ( Number(roi) / 10000 ).toFixed(2) + "%" ;
+		total1.value = (Number(total)).toLocaleString();
+		for (var j = 0; j < select1.length; j++) {
+			   if ( select1[j].value <= 0 ) {
+				   select1[j].disabled = true;
+				   select2[j].disabled = true;
+			}
+	    }
+	}
 	else {
-		total2.value = roi.toFixed(2);
+		total2.value = ( Number(roi) / Number(total1.value) * 100  ).toFixed(2) + "%"  ;
+		total3.value = ( Number(roi) / 10000 ).toFixed(2) + "%" ;
+		total1.value = (Number(total)).toLocaleString();
 	}
 }
 
