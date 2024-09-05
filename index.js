@@ -1,5 +1,4 @@
 
-
 const date1 = document.getElementById('date1');
 const date2 = document.getElementById('date2');
 
@@ -128,7 +127,8 @@ date1.addEventListener('input', function(e){
 	}
 	
 	total1.value = 0;
-	total2.value = 0;
+	total2.value = "0%";
+	total3.value = "0%";
 	last1.value = (1000000).toLocaleString();
 	deletealloptions();
 	if ( !date1.value ) {
@@ -1158,9 +1158,10 @@ function disable() {
 		roi[i].value = "";
 	}
 	
-	total1.value = "";
-	total2.value = "";
-	last1.value = "";
+	total1.value = 0;
+	total2.value = "0%";
+	total3.value = "0%";
+	last1.value = (1000000).toLocaleString();
 }
 reset.addEventListener('click', function(b) {
 	var unit = document.querySelectorAll('select[name="unit"]');
