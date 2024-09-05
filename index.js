@@ -133,16 +133,16 @@ date1.addEventListener('input', function(e){
 	deletealloptions();
 	if ( !date1.value ) {
 		disable();
-		date1.value = "2023-10-01";
-		date2.value = "2024-09-31";
+		date1.value = "2023-09-02";
+		date2.value = "2024-09-01";
 	}
 	else {
 		if([6,0].includes(day)){
 			e.preventDefault();
 			this.value = '';
 			alert('非營業日');
-			date1.value = "2023-10-01";
-			date2.value = "2024-09-30";
+			date1.value = "2023-09-02";
+			date2.value = "2024-09-01";
 			disable();
 		}
 		
