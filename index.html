@@ -1,523 +1,136 @@
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>ETF投資組合遊戲</title>
-	<h1>ETF投資組合遊戲</h1>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Memory Game</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
-    <form>
-		<label>
-			投資起始日(營業日):
-			<input id="date1" type="date" value="2023-09-02" min="2023-09-01" max="2023-09-30" />
-			- 投資到期日: 
-			<input id="date2" value="2024-09-01" />
-		</label>
-		<table width="100%" height="80%" align="center" border="1">
-			<tr>
-				<th style="width: 75px">代號</th>
-				<th style="width: 175px">名稱</th>
-				<th style="width: 175px">單位數</th>
-				<th style="width: 50px">單價</th>
-				<th style="width: 200px">投資金額</th>
-				<th style="width: 75px">報酬率(含息)</th>
-			</tr>
-			
-			<tr id="bond" name="bond1" align="center">
-				<td>00858</td>
-				<td>永豐美國500大</td>
-				<td><select id="unit1" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td><input id="price1" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum1" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-				</select></td>
-				<td><input id="roi1" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond2" align="center">
-				<td style="width: 75px">00877</td>
-				<td>復華中國5G</td>
-				<td><select id="unit2" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price2" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum2" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi2" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond3" align="center">
-				<td>00886</td>
-				<td>永豐美國科技</td>
-				<td><select id="unit3" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price3" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum3" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi3" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond4" align="center">
-				<td>00887</td>
-				<td>永豐中國科技50大</td>
-				<td><select id="unit4" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price4" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum4" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi4" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond5" align="center">
-				<td>00888</td>
-				<td>永豐台灣ESG</td>
-				<td><select id="unit5" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price5" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum5" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi5" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond6" align="center">
-				<td>00928</td>
-				<td>中信上櫃ESG30</td>
-				<td><select id="unit6" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price6" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum6" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi6" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond7" align="center">
-				<td>006201</td>
-				<td>元大富櫃50</td>
-				<td><select id="unit7" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price7" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum7" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi7" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond8" align="center">
-				<td>00933B</td>
-				<td>國泰10Y+金融債</td>
-				<td><select id="unit8" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price8" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum8" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi8" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond9" align="center">
-				<td>00937B</td>
-				<td>群益ESG投等債20+</td>
-				<td><select id="unit9" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price9" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum9" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi9" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond10" align="center">
-				<td>00942B</td>
-				<td>台新美A公司債20+</td>
-				<td><select id="unit10" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price10" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum10" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi10" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond11" align="center">
-				<td>00740B</td>
-				<td>富邦全球投等債</td>
-				<td><select id="unit11" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price11" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum11" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi11" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond12" align="center">
-				<td>00746B</td>
-				<td>富邦A級公司債</td>
-				<td><select id="unit12" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price12" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum12" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi12" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond13" align="center">
-				<td>00772B</td>
-				<td>中信高評級公司債</td>
-				<td><select id="unit13" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price13" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum13" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi13" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr id="bond" name="bond14" align="center">
-				<td>00782B</td>
-				<td>國泰A級公司債</td>
-				<td><select id="unit14" name="unit" value="0">
-						<option value="0">請選擇您的張數</option>
-					</select></td>
-				<td ><input id="price14" name="price" type="text" value="" readonly="readonly"></td>
-				<td><select id="sum14" name="sum"  value="0">
-					<option value="0">請選擇您的投資金額</option>
-					<option value="50000">50,000</option>
-					<option value="100000">100,000</option>
-					<option value="150000">150,000</option>
-					<option value="200000">200,000</option>
-					<option value="250000">250,000</option>
-					<option value="300000">300,000</option>
-					<option value="350000">350,000</option>
-					<option value="400000">400,000</option>
-					<option value="450000">450,000</option>
-					<option value="500000">500,000</option>
-					<option value="550000">550,000</option>
-					<option value="600000">600,000</option>
-					<option value="650000">650,000</option>
-					<option value="700000">700,000</option>
-					<option value="750000">750,000</option>
-					<option value="800000">800,000</option>
-					<option value="850000">850,000</option>
-					<option value="900000">900,000</option>
-					<option value="950000">950,000</option>
-					<!--<option value="1000000">1,000,000</option>-->
-				</select></td></td>
-				<td><input id="roi14" name="roi" type="text" value="" readonly="readonly"></td>
-			</tr>
-			
-			<tr align="center">
-				<th colspan="4">合計</th>
-				<td><input id="total1" name="total" type="text" value="0" style="width: 200px; text-align: center;"></td>
-				<td><input id="total2" name="total" type="text" value="0%" style="text-align: center;"></td>
-			</tr>
-			
-			<tr align="center">
-				<th colspan="4">剩餘金額</th>
-				<td><input  id="last1" name="last" type="text" value="1,000,000" style="width: 200px; text-align: center;"></td>
-				<td style="width: 100px; text-align: center;">0%</td>
-			</tr>
-			
-			<tr align="center">
-				<th colspan="4">投資組合報酬</th>
-				<td style="text-align: center">1,000,000</td>
-				<td><input id="total3" name="total" type="text" value="0%" style="text-align: center"></td>
-			</tr>
-			
-			<tr >
-				<td id="text1" colspan="5">臺銀一年期定存</td>
-				<td style="text-align: center">1.575%</td>
-			</tr>
-			
-			<tr >
-				<td id="text2" colspan="5">櫃買指數報酬</td>
-				<td style="text-align: center">5%</td>
-			</tr>
-		</table>
-		<input id="reset" type="reset" value="Reset" />
-	</form>
-	
-	
-    <script src="./index.js"></script>
+    <h1 class="title-text">櫃買對對碰</h1>
+    <!--<h2 class="title-text2">永續發展債券</h2>-->
+    <!-- <h2 class="timer-text">
+        剩餘時間：<p class="timer">600</p>
+    </h2> -->
+
+
+    
+
+
+    <section class="memory-game">
+        <!--<div class="memory-card" data-framework="leia">
+            <img class="back-face" src="img/ESG1/ESG_06.PNG" alt="A">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>-->
+		<div class="memory-card" data-framework="leia">
+            <img class="back-face" src="" alt="A">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+		<div class="memory-card" data-framework="leia">
+            <img class="back-face" src="" alt="A">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="luke">
+            <img class="back-face" src="" alt="B">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="luke">
+            <img class="back-face" src="" alt="B">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="padme">
+            <img class="back-face" src="" alt="C">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="padme">
+            <img class="back-face" src="" alt="C">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="vader">
+            <img class="back-face" src="" alt="D">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="vader">
+            <img class="back-face" src="" alt="D">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="yoda">
+            <img class="back-face" src="" alt="E">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="yoda">
+            <img class="back-face" src="" alt="E">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="emperor">
+            <img class="back-face" src="" alt="F">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+		<div class="memory-card" data-framework="emperor">
+            <img class="back-face" src="" alt="F">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>
+		
+        <!--<div class="memory-card" data-framework="leia">
+            <img class="back-face" src="img/ESG1Ans/ESG_06.PNG" alt="A">
+            <img class="front-face" src="img/mosquito/CardBackground.png" alt="Memory Card">
+        </div>-->
+
+
+        <!-- <div class="memory-card" data-framework="chewbacca">
+            <img class="front-face" src="" alt="G">
+            <img class="back-face" src="img/tpex_card_background.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="chewbacca">
+            <img class="front-face" src="" alt="G">
+            <img class="back-face" src="img/tpex_card_background.png" alt="Memory Card">
+        </div>
+
+        <div class="memory-card" data-framework="docker-logo">
+            <img class="front-face" src="" alt="H">
+            <img class="back-face" src="img/tpex_card_background.png" alt="Memory Card">
+        </div>
+        <div class="memory-card" data-framework="docker-logo">
+            <img class="front-face" src="" alt="H">
+            <img class="back-face" src="img/tpex_card_background.png" alt="Memory Card">
+        </div> -->
+    
+
+    </section>
+
+
+
+
+    <!-- 0831Hidden Restart button  -->
+    <!-- <div class="input">
+        <Input class="restart" Type="Button" Value="Restart !!!" onClick="window.location.reload();">
+    </div> -->
+
+    <div class="modal hidden">
+        <div class="modal-text">
+          <span class="close">&times;</span>
+          <h3 class="pass-text">恭喜過關!!!</h3>
+          
+        </div>
+        
+    </div>
+    <!-- <Input class="playAgain hidden" Type="Button" Value="Play Again !!!" onClick="window.location.reload();"> -->
+    <!-- 0830 Jump to 反詐騙宣導-->
+    <Input class="playAgain hidden" Type="Button" Value="前往反投資詐騙問答!!" onclick="location.href='https://brandstudio.tnlmedia.com/2024/TPEx/Anti-Deception/index.html#/';" >
+	<!--<Input class="playAgain hidden" Type="Button" Value="前往反投資詐騙問答!!" onClick="location.replace('/anti/')">-->
+        
+
+
+
+
+        <!-- 0826 add to jump another html -->
+    <!-- <input type="button" name="Submit" value="the other memory game" class="playAgain hidden" onclick="location.href='index.html'" /> -->
+
+       
+
+
+    <script src="scripts.js"></script>
 </body>
 </html>
