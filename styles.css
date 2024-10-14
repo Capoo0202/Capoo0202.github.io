@@ -13,7 +13,7 @@ body {
   height: 100vh;
   /* display: flex; */
   /* background: #d1c4a6; */
-  background-image: url("./img/mosquito/FinTech2022.png");
+  /*background-image: url("./img/mosquito/FinTech2022.png");*/
 }
 
 .memory-game {
@@ -99,14 +99,14 @@ body {
 
 .title-text {
   font-size: 8vmin;
-  -webkit-text-stroke: 2.0px #6D5A1F;
+  -webkit-text-stroke: 3.0px #6D5A1F;
   text-shadow: 0px 0px 15px #6D5A1F;
   letter-spacing: 5px;
   font-family: "Inconsolata", monospace;
-  color: #eed920;
+  color: rgb(255,255,45);
   /* position: relative; */
   position: absolute;
-  top: 5vh;  
+  top: 7vh;  
   left: 50vw;
   transform: translate(-50%, -50%);
   text-align: center; 
