@@ -2,16 +2,16 @@ const cards = document.querySelectorAll('.memory-card');
 const frontFaces = document.querySelectorAll('.back-face');
 // const backFaces = document.querySelectorAll('.back-face')
 const cardImages = [
-  "TPEX_01.png"
-  ,"TPEX_02.png"
-  ,"TPEX_03.png"
-  ,"TPEX_04.png"
-  ,"TPEX_05.png"
-  ,"TPEX_06.png"
-  ,"TPEX_07.png"
-  ,"TPEX_08.png"
-  ,"TPEX_09.png"
-  ,"TPEX_10.png"
+  "TPEX_01.PNG"
+  ,"TPEX_02.PNG"
+  ,"TPEX_03.PNG"
+  ,"TPEX_04.PNG"
+  ,"TPEX_05.PNG"
+  ,"TPEX_06.PNG"
+  ,"TPEX_07.PNG"
+  ,"TPEX_08.PNG"
+  ,"TPEX_09.PNG"
+  ,"TPEX_10.PNG"
 ];
 const bgms = [
   "Action-Rock.mp3",
